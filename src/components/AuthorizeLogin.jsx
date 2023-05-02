@@ -16,20 +16,20 @@ const AuthorizeLogin = () => {
   };
   return (
     <>
-      <div className="flex flex-col w-72 mx-auto border-opacity-50">
+      <div className="flex flex-col w-72 mx-auto">
         <div className="divider">OR</div>
       </div>
       <button
         onClick={handleGoogleLogin}
-        className="flex items-center mt-2 gap-5 w-72 mx-auto rounded-full text-black border-2 pe-12"
+        className="flex items-center bt mt-2 gap-5 w-72 mx-auto rounded-full normal-case border-2 pe-12 "
       >
         <FaGoogle className="ms-1 me-5" /> Login with Google
       </button>
       <button
         onClick={handleGithubLogin}
-        className="flex items-center mt-2 gap-5 w-72 mx-auto rounded-full text-black border-2 pe-12"
+        className="bt flex normal-case items-center mt-2 gap-5 w-72 mx-auto rounded-full border-2 pe-12"
       >
-        <FaGithub className="ms-1 me-5 text-blue-600" /> Login with Github
+        <FaGithub className="ms-1 me-5 " /> Login with Github
       </button>
     </>
   );

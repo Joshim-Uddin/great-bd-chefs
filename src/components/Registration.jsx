@@ -27,10 +27,10 @@ const Registration = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="my-10">
+    <div className="my-10 text-white">
       <Form
         onSubmit={handleSignUp}
-        className="flex flex-col gap-5 text-lef justify-center py-5 px-8 items-start border-2 border-gray-500 w-1/3 mx-auto"
+        className="flex flex-col gap-5 bg-stone-500 text-left justify-center py-5 px-8 items-start border-2 border-gray-500 w-1/3 mx-auto"
       >
         <h3 className="text-left">Create an account</h3>
         <div className="w-full">
@@ -73,7 +73,7 @@ const Registration = () => {
         </div>
 
         <div className="w-full">
-          <button type="submit" className="btn btn-accent w-full normal-case">
+          <button type="submit" className="bt w-full normal-case">
             Create an account
           </button>
         </div>

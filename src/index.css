@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -75,4 +76,11 @@ button:focus-visible {
 }
 .container{
   @apply w-11/12 mx-auto
+}
+.bt{
+  @apply bg-[#F9A51A] py-2 px-4 rounded text-black hover:text-white
+}
+.logo{
+  font-family: 'Bruno Ace', cursive;
+  font-size: 1.2rem;
 }
