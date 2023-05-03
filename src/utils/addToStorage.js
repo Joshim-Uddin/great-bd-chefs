@@ -19,7 +19,7 @@ const removeFromDb = id => {
     const favoriteRecipe = getFavoriteRecipe();
     if (id in favoriteRecipe) {
         delete favoriteRecipe[id];
-        localStorage.setItem('shopping-cart', JSON.stringify(favoriteRecipe));
+        localStorage.setItem('favoriteRecipe', JSON.stringify(favoriteRecipe));
     }
 }
 

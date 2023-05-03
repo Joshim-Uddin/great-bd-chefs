@@ -7,7 +7,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut();
   };
-  console.log(user);
+
   return (
     <>
       <nav className="navbar bg-[#2D2926FF] text-white px-20 flex items-center">
@@ -33,17 +33,26 @@ const Navbar = () => {
           >
             Favorite Recipes
           </NavLink>
-          {user ? (
-            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-              <img
-                src={user.photoURL}
-                alt=""
-                style={{ height: "40px", width: "40px", borderRadius: "100%" }}
-              />
-            </div>
-          ) : (
-            <></>
-          )}
+          <Link to="/user">
+            {user ? (
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip={user.displayName}
+              >
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  style={{
+                    height: "40px",
+                    width: "40px",
+                    borderRadius: "100%",
+                  }}
+                />
+              </div>
+            ) : (
+              <></>
+            )}
+          </Link>
           {user ? (
             <button className="bt" onClick={handleLogout}>
               LogOut
