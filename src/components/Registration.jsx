@@ -14,9 +14,9 @@ const Registration = () => {
     const email = form.email.value;
     const password = form.password.value;
     const name = form.name.value;
-    const photourl = form.photUrl.value;
+    const photourl = form.photo.value;
 
-    createUser(email, password)
+    createUser(email, password, name, photourl)
       .then((result) => {
         const createdUser = result.user;
         updateProfile(createdUser, {
@@ -25,6 +25,7 @@ const Registration = () => {
         })
           .then(console.log("profile updated"))
           .catch((error) => console.log(error));
+        form.reset();
       })
       .catch((error) => {
         error.message;
@@ -60,8 +61,8 @@ const Registration = () => {
         <div className="w-full">
           <input
             type="text"
-            name="photoUrl"
-            id="photoUrl"
+            name="photo"
+            id="photo"
             placeholder="Photo URL"
             className="w-full py-2 px-2 border-b outline-1 bg-transparent "
           />
