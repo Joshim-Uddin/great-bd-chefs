@@ -84,3 +84,6 @@ button:focus-visible {
   font-family: 'Bruno Ace', cursive;
   font-size: 1.2rem;
 }
+.active{
+  @apply text-blue-500 font-semibold shadow-slate-200
+}

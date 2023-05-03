@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
 
 const Navbar = () => {
@@ -7,7 +7,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut();
   };
-
+  console.log(user);
   return (
     <>
       <nav className="navbar bg-[#2D2926FF] text-white px-20 flex items-center">
@@ -15,9 +15,24 @@ const Navbar = () => {
           <h4 className="logo">Great BD Chef Recipes</h4>
         </Link>
         <div className="flex gap-5">
-          <Link to="/">Home</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/favorite">Favorite Recipes</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/blog"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Blog
+          </NavLink>
+          <NavLink
+            to="/favorite"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Favorite Recipes
+          </NavLink>
           {user ? (
             <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
               <img
