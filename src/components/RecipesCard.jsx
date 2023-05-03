@@ -17,7 +17,7 @@ const RecipesCard = ({ chef }) => {
         </div>
         <p className="text-center">Number of Recipes: {num_recipes}</p>
         <div className="card-actions justify-center">
-          <Link to="/chefrecipes">
+          <Link to={`/chefs/${id}`}>
             <button className="btn btn-primary">View Recipes</button>
           </Link>
         </div>
