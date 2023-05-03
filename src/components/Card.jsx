@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Rating } from "@smastrom/react-rating";
+import toast, { Toaster } from "react-hot-toast";
 
 import "@smastrom/react-rating/style.css";
+import { addToDb } from "../utils/addToStorage";
 
 const Card = ({ recipe }) => {
-  const { name, ingredients, cooking_method, rating, recipe_img } = recipe;
+  const { recipe_id, name, ingredients, cooking_method, rating, recipe_img } =
+    recipe;
+  const [favoriteRecipe, setFavoriteRecipe] = useState([]);
+
+  useEffect(() => {
+    const getRecipe = localStorage.getItem("favoriteRecipe");
+    console.log(getRecipe);
+    if (getRecipe) {
+      const savedRecipe = JSON.parse(getRecipe);
+      setFavoriteRecipe(savedRecipe);
+      console.log(savedRecipe);
+    }
+  }, []);
+
   return (
     <div className="relative border">
       <img src={recipe_img} alt="" className="w-full h-64 mb-2" />
@@ -27,7 +42,16 @@ const Card = ({ recipe }) => {
             <p>{rating}</p>
           </div>
 
-          <button className="bt">Add To Favorite</button>
+          <button
+            onClick={(e) => {
+              e.currentTarget.disabled = true;
+              addToDb(recipe_id);
+            }}
+            className="bt"
+          >
+            Add To Favorite
+          </button>
+          <Toaster />
         </div>
       </div>
     </div>

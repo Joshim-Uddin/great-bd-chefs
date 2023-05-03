@@ -10,11 +10,16 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import { toast } from "react-hot-toast";
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const githubProvider = new GithubAuthProvider();
 const gProvider = new GoogleAuthProvider();
+
+export const addedError = () => toast.error("Reciepe Already Added");
+
+export const wave = () => toast.success("Recipe Added to Favorite");
 
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);

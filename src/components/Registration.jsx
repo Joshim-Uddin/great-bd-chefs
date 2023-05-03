@@ -3,9 +3,11 @@ import AuthorizeLogin from "./AuthorizeLogin";
 import { Form, Link } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
+import { useState } from "react";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,7 +26,10 @@ const Registration = () => {
           .then(console.log("profile updated"))
           .catch((error) => console.log(error));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        error.message;
+        setError("Registration Error: " + error.message);
+      });
   };
   return (
     <div className="my-10 text-white">
@@ -71,7 +76,11 @@ const Registration = () => {
             className="w-full py-2 px-2 border-b outline-1 bg-transparent"
           />
         </div>
-
+        {error && (
+          <div>
+            <p className="text-red-400">{error}</p>
+          </div>
+        )}
         <div className="w-full">
           <button type="submit" className="bt w-full normal-case">
             Create an account

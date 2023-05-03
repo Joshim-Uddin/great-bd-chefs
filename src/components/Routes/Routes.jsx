@@ -7,11 +7,13 @@ import User from "../User";
 import Login from "../Login";
 import Registration from "../Registration";
 import ChefRecipes from "../ChefRecipes";
+import ErrorPage from "../ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
