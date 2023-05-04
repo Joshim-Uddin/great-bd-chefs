@@ -2,7 +2,6 @@ import { Rating } from "@smastrom/react-rating";
 import React from "react";
 
 const PopularRecipeCard = ({ recipe }) => {
-  console.log(recipe);
   const { name, description, image, id, ratings, process } = recipe;
   return (
     <div className="bg-white rounded mb-3 shadow-md shadow-slate-600">

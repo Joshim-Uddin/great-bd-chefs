@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Like from "./../assets/like.png";
+import Like from "../../assets/like.png";
 
 const RecipesCard = ({ chef }) => {
-  console.log(chef);
   const { id, name, image, likes, num_recipes, years_of_experience } = chef;
   return (
     <div className="card bg-base-100 shadow-xl">

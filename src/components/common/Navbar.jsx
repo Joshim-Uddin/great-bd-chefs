@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "./Providers/AuthProviders";
+import { AuthContext } from "../Providers/AuthProviders";
 import { FaBars } from "react-icons/fa";
 import Dark from "./Dark";
 
@@ -54,6 +54,12 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Favorite Recipes
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            About Us
           </NavLink>
           <Link to="/user">
             {user ? (

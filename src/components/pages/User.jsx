@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "./Providers/AuthProviders";
+import { AuthContext } from "../Providers/AuthProviders";
 import { FaCamera } from "react-icons/fa";
-import { storage } from "../firebase/firebase.config";
+import { storage } from "../../firebase/firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Avatar } from "@mui/material";
 import { updateProfile } from "firebase/auth";
@@ -15,7 +15,6 @@ const User = () => {
       setImage(e.target.files[0]);
     }
   };
-  console.log(image);
   const handleSubmit = () => {
     const imageRef = ref(storage, "image");
     uploadBytes(imageRef, image)

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import AuthorizeLogin from "./AuthorizeLogin";
-import { AuthContext } from "./Providers/AuthProviders";
+import { AuthContext } from "../Providers/AuthProviders";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
@@ -28,7 +28,6 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           result.user;
-          localStorage.setItem("user", true);
           Navigate(location.state.pathname || "/");
         })
         .catch((err) => setError("Email and password doesn't match"));
@@ -115,7 +114,11 @@ const Login = () => {
         </div>
         <p>
           Don't have an account ?{" "}
-          <Link to="/register" className="text-[#F9A51A] underline">
+          <Link
+            to="/register"
+            state={location.state}
+            className="text-[#F9A51A] underline"
+          >
             Create an account
           </Link>
         </p>

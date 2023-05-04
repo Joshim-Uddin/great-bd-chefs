@@ -2,7 +2,6 @@ import React from "react";
 import RecipesCard from "./RecipesCard";
 
 const RecipesSection = ({ chefs }) => {
-  console.log(chefs);
   return (
     <div className="bg-red-300 py-12">
       <h2 className="text-4xl text-center text-white mb-8">

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { AuthContext } from "./Providers/AuthProviders";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const AuthorizeLogin = () => {
   const { githubLogin, googleLogin } = useContext(AuthContext);

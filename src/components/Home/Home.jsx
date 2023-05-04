@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from "./../assets/img81602.whqc_2846x1422q90.webp";
+import heroImage from "./../../assets/img81602.whqc_2846x1422q90.webp";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import RecipesSection from "./RecipesSection";
 import { useLoaderData } from "react-router-dom";
@@ -9,7 +9,6 @@ import FeaturedRecipe from "./FeaturedRecipe";
 const Home = () => {
   const data = useLoaderData();
   const { chefs } = data;
-  console.log(chefs);
   return (
     <>
       <div className="container text-white lg:flex gap-6 items-center my-3 lg:h-screen">

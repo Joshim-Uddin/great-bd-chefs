@@ -1,12 +1,20 @@
 import React, { useContext } from "react";
 import AuthorizeLogin from "./AuthorizeLogin";
-import { Form, Link } from "react-router-dom";
-import { AuthContext } from "./Providers/AuthProviders";
+import {
+  Form,
+  Link,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
 import { useState } from "react";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -19,6 +27,7 @@ const Registration = () => {
     createUser(email, password, name, photourl)
       .then((result) => {
         const createdUser = result.user;
+        navigate(location.state.pathname, { replace: true });
         updateProfile(createdUser, {
           displayName: name,
           photoURL: photourl,

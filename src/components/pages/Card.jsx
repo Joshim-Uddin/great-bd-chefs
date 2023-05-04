@@ -4,7 +4,7 @@ import { Rating } from "@smastrom/react-rating";
 import toast, { Toaster } from "react-hot-toast";
 
 import "@smastrom/react-rating/style.css";
-import { addToDb } from "../utils/addToStorage";
+import { addToDb } from "../../utils/addToStorage";
 import LazyLoad from "react-lazy-load";
 
 const Card = ({ recipe }) => {
@@ -14,11 +14,9 @@ const Card = ({ recipe }) => {
 
   useEffect(() => {
     const getRecipe = localStorage.getItem("favoriteRecipe");
-    console.log(getRecipe);
     if (getRecipe) {
       const savedRecipe = JSON.parse(getRecipe);
       setFavoriteRecipe(savedRecipe);
-      console.log(savedRecipe);
     }
   }, []);
 
