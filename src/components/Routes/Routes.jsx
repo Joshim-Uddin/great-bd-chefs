@@ -11,6 +11,7 @@ import ErrorPage from "../ErrorPage";
 import FavoriteRecipes from "../FavoriteRecipes";
 import PopularRecipes from "../PopularRecipes";
 import AboutUsPage from "../AboutUs";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,12 +22,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000"),
+        loader: () =>
+          fetch(
+            "https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app"
+          ),
       },
       {
         path: "/blog",
         element: <Blog />,
-        loader: () => fetch("http://localhost:5000/blog"),
+        loader: () =>
+          fetch(
+            "https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app/blog"
+          ),
       },
       {
         path: "/user",
@@ -47,13 +54,22 @@ const router = createBrowserRouter([
       {
         path: "/favorite",
         element: <FavoriteRecipes />,
-        loader: () => fetch("http://localhost:5000"),
+        loader: () =>
+          fetch(
+            "https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app"
+          ),
       },
       {
         path: "/chefs/:id",
-        element: <ChefRecipes />,
+        element: (
+          <PrivateRoute>
+            <ChefRecipes />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chefs/${params.id}`),
+          fetch(
+            `https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app/chefs/${params.id}`
+          ),
       },
     ],
   },

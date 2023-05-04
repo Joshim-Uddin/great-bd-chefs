@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
 import { FaBars } from "react-icons/fa";
+import Dark from "./Dark";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -83,6 +84,7 @@ const Navbar = () => {
               <button className="bt">Login</button>
             </Link>
           )}
+          <Dark />
         </div>
       </nav>
     </>

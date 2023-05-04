@@ -9,7 +9,9 @@ const PopularRecipes = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/popular")
+      fetch(
+        "https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app/popular"
+      )
         .then((res) => res.json())
         .then((data) => setPopular(data));
       setIsLoading(false);

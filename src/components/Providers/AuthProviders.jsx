@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
@@ -22,21 +23,27 @@ export const wave = () => toast.success("Recipe Added to Favorite");
 
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const githubLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
   const googleLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, gProvider);
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -45,6 +52,9 @@ const AuthProviders = ({ children }) => {
   const logOut = () => {
     return auth.signOut(auth);
   };
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
   const authInfo = {
     user,
     loginUser,
@@ -52,6 +62,8 @@ const AuthProviders = ({ children }) => {
     githubLogin,
     googleLogin,
     logOut,
+    resetPassword,
+    loading,
   };
 
   return (

@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import AuthorizeLogin from "./AuthorizeLogin";
 import { AuthContext } from "./Providers/AuthProviders";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, resetPassword } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -14,6 +14,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
+  const Navigate = useNavigate();
+  const location = useLocation();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (email.length === 0) {
@@ -26,6 +28,8 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           result.user;
+          localStorage.setItem("user", true);
+          Navigate(location.state.pathname || "/");
         })
         .catch((err) => setError("Email and password doesn't match"));
     }
@@ -54,6 +58,11 @@ const Login = () => {
     } else {
       setPasswordError("");
     }
+  };
+  const handleForgot = () => {
+    resetPassword(email)
+      .then(() => console.log("Password reset email sent"))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -90,7 +99,9 @@ const Login = () => {
           )}
         </div>
         <div className="flex w-full items-center justify-between gap-5">
-          <p>Forgot Password</p>
+          <p className="cursor-pointer" onClick={handleForgot}>
+            Forgot Password
+          </p>
         </div>
         {error && (
           <div>

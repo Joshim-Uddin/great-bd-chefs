@@ -87,3 +87,11 @@ button:focus-visible {
 .active{
   @apply text-blue-500 font-semibold shadow-slate-200
 }
+
+.dark {
+  @apply bg-[#5c3c3c] text-[#556d0e]
+  }
+
+.light {
+  @apply bg-[#efb2b2] text-[#333]
+  }

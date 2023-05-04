@@ -18,14 +18,12 @@ const Home = () => {
             Great Bangladeshi Chef's Recipes
           </h1>
           <div className="justify relative  mt-3">
-            <FaQuoteLeft className="absolute" />
-            <p className="ms-5 me-1">
-              The cuisine of Bangladesh is a celebration of diverse flavors,
+            <p className="me-1 text-xl">
+              "The cuisine of Bangladesh is a celebration of diverse flavors,
               textures, and aromas, and the chefs of Bangladesh are artists who
               masterfully blend spices, herbs, and ingredients to create dishes
-              that are both delicious and deeply rooted in tradition.
+              that are both delicious and deeply rooted in tradition."
             </p>
-            <FaQuoteRight className="absolute bottom-1 right-20 lg:bottom-1.5 lg:left-28" />
           </div>
         </div>
         <div>

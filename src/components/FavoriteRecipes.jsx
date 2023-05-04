@@ -54,20 +54,12 @@ const FavoriteRecipes = () => {
     // setselectedRecipes(newJobs);
   };
   return (
-    <div className="px-12 relative">
-      <h2 className="text-center text-4xl font-bold my-4">
+    <div className="relative p-12">
+      <h2 className="text-center text-4xl font-bold my-8">
         My Favorite Recipes
       </h2>
-      <select
-        onChange={handleOnChange}
-        className="absolute right-16 w-48 p-2 rounded top-12 block"
-      >
-        <option value="">Filter Job</option>
-        <option value="remote">Remote</option>
-      </select>
 
-      <div className="flex flex-col gap-4 mt-32">
-        <p>{selectedRecipes.length}</p>
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-5 items-center justify-center">
         {selectedRecipes.map((recipe) => (
           <SingleFavoriteRecipe key={uuidv4()} recipe={recipe} />
         ))}

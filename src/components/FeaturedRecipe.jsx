@@ -4,7 +4,9 @@ const FeaturedRecipe = () => {
   const [data, setData] = useState({});
   const { image, name } = data;
   useEffect(() => {
-    fetch("http://localhost:5000/featured")
+    fetch(
+      "https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app/featured"
+    )
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
