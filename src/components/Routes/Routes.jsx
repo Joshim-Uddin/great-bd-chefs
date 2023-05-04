@@ -9,6 +9,7 @@ import Registration from "../Registration";
 import ChefRecipes from "../ChefRecipes";
 import ErrorPage from "../ErrorPage";
 import FavoriteRecipes from "../FavoriteRecipes";
+import PopularRecipes from "../PopularRecipes";
 
 const router = createBrowserRouter([
   {

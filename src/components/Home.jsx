@@ -3,9 +3,13 @@ import heroImage from "./../assets/img81602.whqc_2846x1422q90.webp";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import RecipesSection from "./RecipesSection";
 import { useLoaderData } from "react-router-dom";
+import PopularRecipes from "./PopularRecipes";
+import FeaturedRecipe from "./FeaturedRecipe";
 
 const Home = () => {
-  const chefs = useLoaderData();
+  const data = useLoaderData();
+  const [chefs, popular] = data;
+  console.log(popular);
   return (
     <>
       <div className="container text-white lg:flex gap-6 items-center h-screen">
@@ -33,6 +37,8 @@ const Home = () => {
         </div>
       </div>
       <RecipesSection chefs={chefs} />
+      <FeaturedRecipe />
+      <PopularRecipes popular={popular} />
     </>
   );
 };
