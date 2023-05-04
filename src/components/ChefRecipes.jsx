@@ -11,8 +11,7 @@ const ChefRecipes = () => {
   return (
     <>
       <h2 className="text-4xl text-white my-10 text-center">Chef Recipes</h2>
-      <div>{Navigation.state === "loading" ? <>Loading</> : <>not</>}</div>
-      <div className="grid grid-cols-3 bg-stone-400 text-black pb-8">
+      <div className="grid lg:grid-cols-3 grid-cols-1 bg-stone-400 text-black pb-8">
         {recipes.map((recipe) => {
           return <Card key={recipe.recipe_id} recipe={recipe}></Card>;
         })}

@@ -59,7 +59,7 @@ const Login = () => {
     <div className="my-10 text-white">
       <Form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 text-left text-white justify-center py-5 px-8 items-start border-2 border-gray-200 w-1/3 bg-stone-500 mx-auto"
+        className="flex flex-col gap-5 text-left text-white justify-center py-5 px-8 items-start border-2 border-gray-200 lg:w-1/3 w-3/4 bg-stone-500 mx-auto"
       >
         <h3 className="text-left">Login</h3>
         <div className="w-full">

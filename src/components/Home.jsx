@@ -8,13 +8,13 @@ import FeaturedRecipe from "./FeaturedRecipe";
 
 const Home = () => {
   const data = useLoaderData();
-  const [chefs, popular] = data;
-  console.log(popular);
+  const { chefs } = data;
+  console.log(chefs);
   return (
     <>
-      <div className="container text-white lg:flex gap-6 items-center h-screen">
+      <div className="container text-white lg:flex gap-6 items-center my-3 lg:h-screen">
         <div className="mb-3">
-          <h1 className="text-5xl font-semibold mb-5">
+          <h1 className="text-5xl lg:text-left text-center font-semibold mb-5">
             Great Bangladeshi Chef's Recipes
           </h1>
           <div className="justify relative  mt-3">
@@ -38,7 +38,7 @@ const Home = () => {
       </div>
       <RecipesSection chefs={chefs} />
       <FeaturedRecipe />
-      <PopularRecipes popular={popular} />
+      <PopularRecipes />
     </>
   );
 };
