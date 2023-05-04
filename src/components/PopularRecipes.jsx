@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import PopularRecipeCard from "./PopularRecipeCard";
-import { Bars, Vortex } from "react-loader-spinner";
+import { Bars } from "react-loader-spinner";
 
 const PopularRecipes = () => {
   const [popular, setPopular] = useState([]);
@@ -22,7 +22,7 @@ const PopularRecipes = () => {
       </h2>
       <span>
         {isLoading ? (
-          <p className="w-10/12 mx-auto flex items-center justify-center my-4">
+          <div className="w-10/12 mx-auto flex items-center justify-center my-4">
             <Bars
               height="80"
               width="100"
@@ -32,7 +32,7 @@ const PopularRecipes = () => {
               wrapperClass=""
               visible={true}
             />
-          </p>
+          </div>
         ) : (
           ""
         )}

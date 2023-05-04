@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import "@smastrom/react-rating/style.css";
 import { addToDb } from "../utils/addToStorage";
+import LazyLoad from "react-lazy-load";
 
 const Card = ({ recipe }) => {
   const { recipe_id, name, ingredients, cooking_method, rating, recipe_img } =
@@ -23,7 +24,9 @@ const Card = ({ recipe }) => {
 
   return (
     <div className="relative border">
-      <img src={recipe_img} alt="" className="w-full h-64 mb-2" />
+      <LazyLoad>
+        <img src={recipe_img} alt="" className="w-full h-64 mb-2" />
+      </LazyLoad>
       <div className="flex flex-col justify-center gap-3 px-3 mb-20">
         <h3 className="text-2xl font-semibold">Recipe : {name}</h3>
         <p>

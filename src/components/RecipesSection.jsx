@@ -8,7 +8,7 @@ const RecipesSection = ({ chefs }) => {
       <h2 className="text-4xl text-center text-white mb-8">
         Our World Class Chefs
       </h2>
-      <div className="grid lg:grid-cols-3 grid-cols-1 container gap-5">
+      <div className="grid lg:grid-cols-3 grid-cols-1 container gap-3">
         {chefs.map((chef) => (
           <RecipesCard key={chef.id} chef={chef}></RecipesCard>
         ))}

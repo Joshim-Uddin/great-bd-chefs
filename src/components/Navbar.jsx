@@ -1,20 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProviders";
+import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [clicked, setClicked] = useState(true);
+
   const handleLogout = () => {
     logOut();
   };
 
   return (
     <>
-      <nav className="navbar bg-[#2D2926FF] text-white px-20 flex items-center">
-        <Link to="/" className="flex-1">
-          <h4 className="logo">Great BD Chef Recipes</h4>
-        </Link>
-        <div className="flex gap-5">
+      <nav
+        className={
+          clicked
+            ? `h-80 flex px-4 py-4 bg-[#2D2926FF] text-white lg:navbar lg:h-auto`
+            : `navbar bg-[#2D2926FF] text-white lg:px-20 px-4 flex lg:flex-row relative gap-3 items-center`
+        }
+      >
+        <div className="flex-1">
+          <Link to="/">
+            <h4 className="logo">Great BD Chef Recipes</h4>
+          </Link>
+        </div>
+        <FaBars
+          className="lg:hidden text-white"
+          onClick={() => setClicked(!clicked)}
+        />
+        <div
+          className={
+            clicked
+              ? `flex lg:flex-row absolute h-32 lg:h-auto mb-32 lg:mb-0 lg:relative lg:top-0 top-16 w-full lg:w-auto flex-col text-center items-center gap-4`
+              : `flex lg:flex-row absolute -top-72 flex-col gap-5`
+          }
+        >
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? "active" : "")}

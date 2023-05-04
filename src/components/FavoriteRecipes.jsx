@@ -6,11 +6,10 @@ import { v4 as uuidv4 } from "uuid";
 
 const FavoriteRecipes = () => {
   const [selected, setSelected] = useState(null);
-  const [appliedJobs, setAppliedJobs] = useState([]);
-  const appliedJob = [];
+  const [selectedRecipes, setSelectedRecipes] = useState([]);
+  const targetRecipe = [];
   let newRecipes = [];
   let allChefs = [];
-  let newJobs;
   const chefs = useLoaderData();
   console.log(chefs.chefs);
   useEffect(() => {
@@ -25,11 +24,11 @@ const FavoriteRecipes = () => {
           newRecipes.push(...chefsRecipes);
         }
         const findRecipe = newRecipes.find((recipe) => recipe.recipe_id == id);
-        appliedJob.push(findRecipe);
+        targetRecipe.push(findRecipe);
       }
     }
-    setAppliedJobs(appliedJob);
-    console.log(appliedJobs);
+    setSelectedRecipes(targetRecipe);
+    console.log(selectedRecipes);
   }, []);
   console.log(allChefs);
   const findParentObject = (id, chefs) => {
@@ -48,11 +47,11 @@ const FavoriteRecipes = () => {
     console.log(selected);
     // const input = e.target.value;
     // if (input == "remote") {
-    //   newJobs = appliedJobs.filter((job) => job.remote == true);
+    //   newJobs = selectedRecipes.filter((job) => job.remote == true);
     // } else if (input == "onsite") {
-    //   newJobs = appliedJobs.filter((job) => job.remote == false);
+    //   newJobs = selectedRecipes.filter((job) => job.remote == false);
     // }
-    // setAppliedJobs(newJobs);
+    // setselectedRecipes(newJobs);
   };
   return (
     <div className="px-12 relative">
@@ -68,8 +67,8 @@ const FavoriteRecipes = () => {
       </select>
 
       <div className="flex flex-col gap-4 mt-32">
-        <p>{appliedJobs.length}</p>
-        {appliedJobs.map((recipe) => (
+        <p>{selectedRecipes.length}</p>
+        {selectedRecipes.map((recipe) => (
           <SingleFavoriteRecipe key={uuidv4()} recipe={recipe} />
         ))}
       </div>

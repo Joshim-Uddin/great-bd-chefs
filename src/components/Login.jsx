@@ -16,8 +16,6 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
     if (email.length === 0) {
       setEmailError("Email is required");
       return;
@@ -25,13 +23,16 @@ const Login = () => {
       setPasswordError("Password is required");
       return;
     } else {
-      const password = form.password.value;
       loginUser(email, password)
-        .then((result) => result.user)
+        .then((result) => {
+          result.user;
+        })
         .catch((err) => setError("Email and password doesn't match"));
-      form.reset();
     }
+    setEmail("");
+    setPassword("");
   };
+
   const handleEmailChange = (e) => {
     const emailInput = e.target.value;
     setEmail(emailInput);

@@ -10,6 +10,7 @@ import ChefRecipes from "../ChefRecipes";
 import ErrorPage from "../ErrorPage";
 import FavoriteRecipes from "../FavoriteRecipes";
 import PopularRecipes from "../PopularRecipes";
+import AboutUsPage from "../AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+        loader: () => fetch("http://localhost:5000/blog"),
       },
       {
         path: "/user",
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration />,
+      },
+      {
+        path: "/about",
+        element: <AboutUsPage />,
       },
       {
         path: "/favorite",
