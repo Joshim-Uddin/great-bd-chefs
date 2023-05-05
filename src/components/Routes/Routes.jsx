@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog />,
+        element: (
+          <PrivateRoute>
+            <Blog />
+          </PrivateRoute>
+        ),
         loader: () =>
           fetch(
             "https://b7a10-chef-recipe-hunter-server-side-joshim-uddin.vercel.app/blog"

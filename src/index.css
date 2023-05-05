@@ -95,3 +95,9 @@ button:focus-visible {
 .light {
   @apply bg-[#efb2b2] text-[#333]
   }
+
+  @page {
+    size: 21cm 29.7cm;
+    margin: 30mm 45mm 30mm 45mm;
+     /* change the margins as you want them to be. */
+}

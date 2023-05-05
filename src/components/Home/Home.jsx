@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import heroImage from "./../../assets/img81602.whqc_2846x1422q90.webp";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import RecipesSection from "./RecipesSection";
 import { useLoaderData } from "react-router-dom";
 import PopularRecipes from "./PopularRecipes";
@@ -8,6 +7,7 @@ import FeaturedRecipe from "./FeaturedRecipe";
 
 const Home = () => {
   const data = useLoaderData();
+  const [loading, setLoading] = useState(false);
   const { chefs } = data;
   return (
     <>
