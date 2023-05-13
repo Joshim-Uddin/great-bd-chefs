@@ -7,7 +7,7 @@ const RecipesCard = ({ chef }) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img src={image} alt="recipe" />
+        <img src={image} alt="recipe" className="h-64 w-full" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>

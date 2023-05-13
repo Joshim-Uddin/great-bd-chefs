@@ -33,7 +33,7 @@ const Navbar = () => {
         <div
           className={
             clicked
-              ? `flex lg:flex-row absolute h-32 lg:h-auto mb-32 lg:mb-0 lg:relative lg:top-0 top-16 w-full lg:w-auto flex-col text-center items-center gap-4`
+              ? `flex lg:flex-row absolute h-32 lg:h-auto mb-32 lg:mb-0 lg:relative lg:top-0 top-16 left-0 right-0 w-full lg:w-auto flex-col text-center items-center gap-4`
               : `flex lg:flex-row absolute -top-96 flex-col gap-5`
           }
         >
