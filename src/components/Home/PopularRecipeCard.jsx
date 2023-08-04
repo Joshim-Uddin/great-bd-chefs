@@ -5,7 +5,7 @@ const PopularRecipeCard = ({ recipe }) => {
   const { name, description, image, id, ratings, process } = recipe;
   return (
     <div className="bg-white rounded mb-3 shadow-md shadow-slate-600">
-      <img src={image} alt="" className="w-full" />
+      <img src={image} alt="" className="w-full md:h-64 h-52 rounded-t" />
       <div className="p-3 my-3">
         <h3 className="text-3xl font-semibold mb-3">{name}</h3>
         <p className="text-justify mb-3">{description}</p>
